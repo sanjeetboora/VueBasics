@@ -12,8 +12,10 @@
     <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
     <h2 v-html="finishedLink"></h2>
 
+    <!-- EVENTS -->
     <button v-on:click = "increase">click Me!</button>
     <p>{{ counter }}</p>
+    <p v-on:mousemove = "updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
   </div>
 
 </body>
@@ -24,7 +26,9 @@
       title: 'Hello World!',
       link: 'http://www.google.com',
       finishedLink :'<a href="http://www.google.com">Google</a>',
-      counter: 0
+      counter: 0,
+      x: 0,
+      y: 0
     },
     methods: {
       sayHello: function(){
@@ -33,6 +37,10 @@
       },
       increase: function(){
         this.counter++;
+      },
+      updateCoordinates: function(event){
+        this.x = event.clientX;
+        this.y = event.clientY;
       }
     }
   })
