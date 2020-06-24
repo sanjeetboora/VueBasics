@@ -3,21 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vue Basics</title>
+  <title>VueJs Basics</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
   <div id="app">
-      <p>{{ title }}</p>
+    <h1 v-once>{{ title }}</h1>
+    <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
   </div>
 
 </body>
-
 <script>
   new Vue({
     el: '#app',
     data: {
-      title: 'Hello World!'
+      title: 'Hello World!',
+      link: 'http://www.google.com'
+    },
+    methods: {
+      sayHello: function(){
+        this.title = 'Hello!';
+        return this.title;
+      }
     }
   })
 </script>
