@@ -13,9 +13,12 @@
     <h2 v-html="finishedLink"></h2>
 
     <!-- EVENTS -->
-    <button v-on:click = "increase">click Me!</button>
+    <button v-on:click = "increase(5)">click Me!</button>
     <p>{{ counter }}</p>
     <p v-on:mousemove = "updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
+
+    <button v-on:click = "inc(1, $event)">click Me!</button>
+    <p>{{ count }}</p>
   </div>
 
 </body>
@@ -28,19 +31,24 @@
       finishedLink :'<a href="http://www.google.com">Google</a>',
       counter: 0,
       x: 0,
-      y: 0
+      y: 0,
+      count: 0
     },
     methods: {
       sayHello: function(){
         this.title = 'Hello!';
         return this.title;
       },
-      increase: function(){
-        this.counter++;
+      increase: function(step){
+        this.counter += step;
       },
       updateCoordinates: function(event){
         this.x = event.clientX;
         this.y = event.clientY;
+      },
+      inc: function(st, event){
+        this.count += st;
+        this.count += event.clientX;
       }
     }
   })
