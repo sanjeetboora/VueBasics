@@ -22,6 +22,10 @@
 
     <button v-on:click = "inc(1, $event)">click Me!</button>
     <p>{{ count }}</p>
+
+    <input type="text" v-on:keyup.enter = "alertMe">  <!-- alert on enter -->
+    <input type="text" v-on:keyup.enter.space = "alertMe">  <!-- alert on space or enter -->
+
   </div>
 
 </body>
@@ -56,6 +60,9 @@
       // dummy: function(event){
       //   event.stopPropagation();
       // }
+      alertMe: function(){
+        alert("key released!");
+      }
     }
   })
 </script>
