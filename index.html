@@ -11,6 +11,9 @@
     <h1 v-once>{{ title }}</h1>
     <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
     <h2 v-html="finishedLink"></h2>
+
+    <button v-on:click = "increase">click Me!</button>
+    <p>{{ counter }}</p>
   </div>
 
 </body>
@@ -20,12 +23,16 @@
     data: {
       title: 'Hello World!',
       link: 'http://www.google.com',
-      finishedLink :'<a href="http://www.google.com">Google</a>'
+      finishedLink :'<a href="http://www.google.com">Google</a>',
+      counter: 0
     },
     methods: {
       sayHello: function(){
         this.title = 'Hello!';
         return this.title;
+      },
+      increase: function(){
+        this.counter++;
       }
     }
   })
