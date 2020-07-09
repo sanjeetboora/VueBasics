@@ -15,11 +15,15 @@
     <!-- <button v-on:click="increase"> Increase Counter </button>
     <button v-on:click="decrease"> Decrease Counter </button> -->
 
-    <button v-on:click="counter++"> Increase Counter </button>
-    <button v-on:click="counter--"> Decrease Counter </button>
-    <button v-on:click="secondCounter++"> Increase SecondCounter </button>
+    <button @click="counter++"> Increase Counter </button>
+    <button @click="counter--"> Decrease Counter </button>
+    <button @click="secondCounter++"> Increase SecondCounter </button>
     <p>Counter: {{ counter }} | Second Counter: {{ secondCounter }}</p>
     <p>Result: {{ result() }} | Output: {{ output }} </p>
+
+
+    <p><a :href="link">Google</a></p>
+
   </div>
  
 </body>
@@ -29,7 +33,8 @@
     data: {
       name: "apple",
       counter: 0,
-      secondCounter: 0
+      secondCounter: 0,
+      link:"http://google.com"
     },
     computed:{
       output: function(){
