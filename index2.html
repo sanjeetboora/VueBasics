@@ -37,6 +37,14 @@
         return this.counter > 5 ? 'Counter is greater than 5' : 'Counter is less than 5';
       }
     },
+    watch: {
+      counter: function(value){
+        var vm = this;
+        setTimeout(function(){
+          vm.counter = 0;
+        },2000);
+      }
+    },
     methods: {
         // increase: function(){
         //   this.counter++;
