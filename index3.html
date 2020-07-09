@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VueJs Basics3</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+      <div class="demo" @click="attachRed = !attachRed" :class="{red: attachRed, blue: !attachRed}"></div>
+      <div class="demo" :class="{red: attachRed}"></div>
+      <div class="demo"></div>
+  </div>
+ 
+</body>
+
+<style>
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+        display: inline-block;
+        margin: 10px;
+    }
+    .red{
+        background-color: red;
+    }
+    .green{
+        background-color: green;
+    }
+    .blue{
+        background-color: blue;
+    }
+</style>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+        attachRed: false
+    }
+  })
+</script>
+</html>
