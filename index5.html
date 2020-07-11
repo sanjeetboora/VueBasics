@@ -15,6 +15,17 @@
         <h2>{{ ingredient }}</h2>
         <p>{{ idx }}</p>
     </template>
+
+    <ul v-for = "person in persons">
+        <li v-for = "(val, key, index) in person">
+            <div>
+                <p>{{ index }}</p>
+                <p>{{ key }}: {{ val }}</p>
+            </div>
+        </li>
+        <hr>
+    </ul>
+
   </div>
  
 </body>
