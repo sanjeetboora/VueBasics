@@ -9,8 +9,11 @@
 <body>
   <div id="app">
     <ul>
-        <li v-for = "(ingredient, idx) in ingredients"> {{ ingredient }} ({{ idx }}) </li>
+        <li v-for = "(ingredient, idx) in ingredients" :key = "ingredient"> {{ ingredient }} ({{ idx }}) </li>
     </ul>
+
+    <button @click = "ingredients.push('spices')">Add new</button>
+
     <template v-for = "(ingredient, idx) in ingredients">
         <h2>{{ ingredient }}</h2>
         <p>{{ idx }}</p>
