@@ -12,36 +12,52 @@ new Vue({
             this.monsterHealth = 100;
         },
         attack: function(){
-            var min = 3;
-            var max = 10;
-            var damage = Math.max(Math.floor(Math.random() * max)+1, min);
-            this.monsterHealth -= damage;
-
-            if(this.monsterHealth <= 0){
-                alert("You Won!!!");
-                this.gameIsRunning = false;
+            this.monsterHealth -= this.calcDamage(3, 10);
+            if(this.checkWin()){
                 return;
             }
-
-            min=5;
-            max=12;
-            damage = Math.max(Math.floor(Math.random() * max)+1, min);
-            this.playerHealth -= damage;
-            
-            if(this.playerHealth <= 0){
-                alert("You Lost!!!");
-                this.gameIsRunning = false;
-                return;
-            }
+            this.monsterAttacks();
         },
         specialAttack: function(){
-
+            this.monsterHealth -= this.calcDamage(10, 20);
+            if(this.checkWin()){
+                return;
+            }
+            this.monsterAttacks();
         },
         heal: function(){
 
         },
         giveUp: function(){
 
+        },
+        monsterAttacks(){
+            this.playerHealth -= this.calcDamage(5, 12);
+            this.checkWin();
+        },
+        calcDamage: function(min, max){
+            return Math.max(Math.floor(Math.random() * max)+1, min);
+        },
+        checkWin: function(){
+            if(this.monsterHealth <= 0){
+                if(confirm("You Won!!!  New Game?")){
+                    this.startGame();
+                }
+                else{
+                    this.gameIsRunning = false;
+                }
+                return true;
+            }
+            else if(this.playerHealth <= 0){
+                if(confirm("You Lost!  New Game?")){
+                    this.startGame();
+                }
+                else{
+                    this.gameIsRunning = false;
+                }
+                return true;
+            }
+            return false;
         }
     }
 });
