@@ -1,5 +1,5 @@
 new Vue({
-  el: "#app",
+  el: "#app1",
   data: {
     title: "VueJs Instance",
     showParagraph: false,
@@ -22,5 +22,12 @@ new Vue({
     title: function (value) {
       alert("title changed, new title: " + value);
     },
+  },
+});
+
+new Vue({
+  el: "#app2",
+  data: {
+    title: "The second instance",
   },
 });
