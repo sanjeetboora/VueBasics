@@ -2,7 +2,9 @@ var data = {
   title: "VueJs Instance",
   showParagraph: false,
 };
-
+Vue.component("hello", {
+  template: "<h1> Hello World! </h1>",
+});
 var vm1 = new Vue({
   data: data,
   methods: {
