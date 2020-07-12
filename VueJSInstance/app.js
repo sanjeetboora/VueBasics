@@ -4,7 +4,6 @@ var data = {
 };
 
 var vm1 = new Vue({
-  el: "#app1",
   data: data,
   methods: {
     show: function () {
@@ -27,10 +26,13 @@ var vm1 = new Vue({
     },
   },
 });
+vm1.$mount("#app1");
 console.log(vm1.$data === data);
 vm1.$refs.heading.innerText = "Something else";
+
 setTimeout(function () {
   vm1.title = "title changed by timer";
+  vm1.show();
 }, 3000);
 
 var vm2 = new Vue({
@@ -44,3 +46,11 @@ var vm2 = new Vue({
     },
   },
 });
+
+var vm3 = new Vue({
+  template: "<h1> Hello World </h1>",
+});
+
+// vm3.$mount("#app3");
+vm3.$mount();
+document.getElementById("app3").appendChild(vm3.$el);
